@@ -1,0 +1,10 @@
+#N canvas 401 114 678 600 12;
+#X obj 85 26 inlet;
+#X obj 134 449 outlet~;
+#X obj 215 451 outlet~;
+#X obj 295 128 inlet;
+#X obj 67 211 duck-voice~ organ-4-voice~;
+#X connect 0 0 4 0;
+#X connect 3 0 4 1;
+#X connect 4 0 1 0;
+#X connect 4 1 2 0;
