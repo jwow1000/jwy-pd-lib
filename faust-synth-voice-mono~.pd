@@ -27,6 +27,7 @@
 #X obj 739 128 inlet;
 #X text 653 107 all other messages;
 #X obj 147 291 \$1, f 13;
+#X obj 655 245 print to-\$1;
 #X connect 0 0 27 0;
 #X connect 1 0 27 0;
 #X connect 2 0 27 0;
@@ -57,4 +58,5 @@
 #X connect 22 0 21 0;
 #X connect 24 0 21 0;
 #X connect 25 0 27 0;
+#X connect 25 0 28 0;
 #X connect 27 1 9 0;

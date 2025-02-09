@@ -1,4 +1,4 @@
-#N canvas 263 117 674 512 12;
+#N canvas 263 117 831 587 12;
 #X obj 113 530 dac~ 1 2;
 #X obj 113 281 inlet~;
 #X obj 227 307 / 127;
@@ -82,6 +82,10 @@
 #X floatatom 60 391 6 0 1000 0 - decay - 0;
 #X text 75 444 <-- open for analysis;
 #X text 108 391 <--;
+#X obj 567 92 inlet;
+#X text 617 97 control;
+#X obj 567 116 route vol;
+#X obj 567 146 clip 0 127;
 #X connect 1 0 4 0;
 #X connect 1 0 10 0;
 #X connect 2 0 3 0;
@@ -111,4 +115,7 @@
 #X connect 30 0 27 0;
 #X connect 30 1 27 1;
 #X connect 31 0 30 1;
+#X connect 34 0 36 0;
+#X connect 36 0 37 0;
+#X connect 37 0 5 0;
 #X coords 0 -1 1 1 140 140 2 100 100;
