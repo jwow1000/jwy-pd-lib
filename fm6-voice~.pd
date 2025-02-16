@@ -1,4 +1,4 @@
-#N canvas 477 166 784 602 12;
+#N canvas -161 65 1039 677 12;
 #X msg 216 210 gate \$1;
 #X msg 77 182 freq \$1;
 #X msg 356 217 gain \$1;
