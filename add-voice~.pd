@@ -2,10 +2,10 @@
 #X obj 155 50 inlet;
 #X obj 155 74 unpack;
 #X obj 224 95 t a a, f 15;
-#X obj 140 351 *~;
-#X obj 241 361 *~;
-#X obj 135 405 outlet~;
-#X obj 254 413 outlet~;
+#X obj 69 424 *~;
+#X obj 170 434 *~;
+#X obj 64 478 outlet~;
+#X obj 183 486 outlet~;
 #X obj 347 283 line~;
 #X obj 326 127 sel 0;
 #X obj 486 336 switch~;
@@ -21,7 +21,7 @@
 #X text 529 55 end;
 #X obj 407 189 i 1;
 #X obj 739 128 inlet;
-#X obj 147 291 add-bank~ \$1;
+#X obj 76 364 add-bank~ \$1;
 #X msg 216 210 all vel \$1;
 #X obj 77 180 lop~ 1000;
 #X obj 628 190 route transpose;
