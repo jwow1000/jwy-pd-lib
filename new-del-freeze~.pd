@@ -21,7 +21,7 @@
 #X obj 533 356 r \$0-d;
 #X obj 592 357 r \$0-s;
 #X obj 641 362 r \$0-r;
-#X obj 384 78 s \$0-susTime;
+#X obj 358 136 s \$0-susTime;
 #X obj 394 201 r \$0-susTime;
 #X text 539 41 Arg 1 capture time ms;
 #X text 538 61 Arg 2 attack time ms;
@@ -51,7 +51,7 @@
 #X obj 43 412 del 3;
 #X obj 281 369 del 3;
 #X obj 87 45 route bang a d s r susTime captureTime, f 51;
-#X obj 387 120 s \$0-captime;
+#X obj 429 114 s \$0-captime;
 #X obj 252 141 r \$0-captime;
 #X obj 107 431 r \$0-captime;
 #X obj 278 454 r \$0-captime;
@@ -59,12 +59,14 @@
 #X obj 205 484 mono-delay \$1 \$1 0.8;
 #X obj 263 291 makenote \$7 \$6;
 #X text 529 178 Arg7 gain 0-127;
+#X floatatom 322 417 5 0 0 0 - - - 0;
+#X floatatom 350 547 5 0 0 0 - - - 0;
 #X connect 0 0 6 0;
 #X connect 0 0 6 1;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;
-#X connect 3 0 56 0;
 #X connect 3 0 57 0;
+#X connect 3 0 56 0;
 #X connect 4 0 3 0;
 #X connect 4 1 51 0;
 #X connect 5 0 30 0;
@@ -118,6 +120,9 @@
 #X connect 53 0 31 2;
 #X connect 54 0 56 1;
 #X connect 55 0 57 1;
+#X connect 55 0 60 0;
 #X connect 56 0 34 0;
 #X connect 57 0 35 0;
 #X connect 58 1 7 0;
+#X connect 61 0 57 1;
+#X connect 61 0 56 1;
