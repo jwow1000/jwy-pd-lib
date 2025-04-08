@@ -11,11 +11,11 @@
 #X obj 159 322 *~;
 #N canvas 0 25 450 300 safety 0;
 #X obj 41 19 inlet~;
-#X obj 41 39 env~;
-#X obj 41 63 >= 109;
-#X obj 41 109 sel 1;
-#X obj 41 83 change -1;
-#X obj 41 129 outlet mute audio;
+#X obj 41 49 env~;
+#X obj 41 73 >= 109;
+#X obj 41 129 sel 1;
+#X obj 41 103 change -1;
+#X obj 41 159 outlet;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
@@ -100,7 +100,6 @@
 #X connect 8 0 10 0;
 #X connect 9 0 11 0;
 #X connect 9 0 29 0;
-#X connect 10 0 7 0;
 #X connect 10 0 15 0;
 #X connect 13 0 0 0;
 #X connect 14 0 0 1;
