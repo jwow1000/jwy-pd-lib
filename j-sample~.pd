@@ -2,12 +2,12 @@
 #X obj 98 151 sel 0, f 25;
 #X obj 307 206 + 1;
 #X obj 307 238 == 1;
-#X obj 272 514 outlet~;
+#X obj 272 544 outlet~;
 #X text 727 475 use this with an envelope;
 #X obj 98 321 s \$0-right-stop;
 #X obj 130 267 s \$0-left-stop;
-#X obj 306 395 r \$0-left-stop;
-#X obj 454 397 r \$0-right-stop;
+#X obj 455 409 r \$0-left-stop;
+#X obj 581 406 r \$0-right-stop;
 #X msg 130 231 stop;
 #X msg 98 297 stop;
 #X obj 533 342 r \$0-messages;
@@ -17,7 +17,7 @@
 #X text 466 16 messages;
 #X obj 652 475 outlet;
 #X text 699 475 vel;
-#X obj 523 507 outlet~;
+#X obj 523 537 outlet~;
 #X obj 272 315 sel 0 1, f 48;
 #X obj 270 205 f 1;
 #X obj 98 204 t b b;
@@ -32,8 +32,8 @@
 #X obj 390 201 v \$0-velV;
 #X obj 186 376 v \$0-velV;
 #X obj 398 367 v \$0-velV;
-#X obj 272 420 j-sample-voice~ \$2;
-#X obj 438 424 j-sample-voice~ \$2;
+#X obj 272 450 j-sample-voice~ \$2;
+#X obj 438 454 j-sample-voice~ \$2;
 #X connect 0 0 21 0;
 #X connect 0 1 27 0;
 #X connect 1 0 2 0;
