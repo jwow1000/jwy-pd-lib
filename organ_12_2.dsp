@@ -1,8 +1,9 @@
-declare filename "organ_12_1.dsp";
-declare name "organ_12_1";
+declare filename "organ_12_2.dsp";
+declare name "organ_12_2";
 import("stdfaust.lib");
 
 declare author "jamie wy";
+declare version "1.2";
 declare copyright "GRAME";
 declare license "LGPL with exception";
 
@@ -27,9 +28,33 @@ freqEnv = en.adsre(fa,fdec,fs,fr,gate) * freqDepth;
 
 slideFreq = freq : si.smooth(port);
 
-// bandlimited simple osc for additive
-osc( i ) = bLimit(newFreq * idx, 18000) : ((os.osc*0.5) * amp) * en.adsre(a,d,s,r,gate) : filtBP
+// Amp LFO global phasor
+ampLFOrate = hslider("ampLFORate", 1, 0, 2000, 0.001);
+
+ampLFOEnv = en.adsre(a,d,s,r,gate) * depth
 with {
+    a = hslider("ampLFOattack", 0.001, 0.001, 12, 0.001);
+    d = hslider("ampLFOdecay", 1, 0.001, 12, 0.001);
+    s = hslider("ampLFOsustain", 0.5, 0, 1, 0.001);
+    r = hslider("ampLFOrelease", 2, 0.001, 12, 0.001);
+    depth= hslider("ampLFOdepth", 1, -20, 10, 0.001);
+};
+
+lfoPhasor = os.phasor(1.0, ampLFOrate * ampLFOEnv);
+
+// process LFO
+processLFO(p, offset) =  sin( ((p + offset) % 1) * (ma.PI*2));
+
+// bandlimited simple osc for additive
+osc( i ) = bLimit(newFreq * idx, 18000) : (os.osc * 0.25) * lfoReceive : _ * en.adsre(a,d,s,r,gate) : filtBP
+with {
+    lfoPhase = hslider("lfoPhase%i", 0, 0, 1, 0.001);
+    lfoAmt = hslider("lfoAmt%i", 1, 0, 1, 0.001);
+    
+    lfoReceive = (processLFO(lfoPhasor, lfoPhase) * lfoAmt) + (1-lfoAmt);
+
+    // (lfoAmt + (1-lfoAmt))
+    
     newFreq = ba.midikey2hz( ba.hz2midikey(slideFreq) + (freqEnv * fEnvAmt));
     fEnvAmt = hslider("fEnvAmt%i", 0, 0, 1, 0.001);
     idx = hslider("idx%i", (i*2)+1, -48, 48, 0.001) : si.polySmooth(gate, 0.999, 10);
