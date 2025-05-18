@@ -1,5 +1,5 @@
-declare filename "organ_12_2.dsp";
-declare name "organ_12_2";
+declare filename "organ_12_3.dsp";
+declare name "organ_12_3";
 import("stdfaust.lib");
 
 declare author "jamie wy";
@@ -46,7 +46,7 @@ lfoPhasor = os.phasor(1.0, ampLFOrate * ampLFOEnv);
 processLFO(p, offset) =  sin( ((p + offset) % 1) * (ma.PI*2));
 
 // bandlimited simple osc for additive
-osc( i ) = bLimit(newFreq * idx, 18000) : (os.osc * 0.25) * lfoReceive : _ * en.adsre(a,d,s,r,gate) : filtBP
+osc( i ) = bLimit(newFreq * idx, 18000) : (os.osc * 0.25) * lfoReceive : _ * en.adsre(a,d,s,r,gate @(del)) : filtBP
 with {
     lfoPhase = hslider("lfoPhase%i", 0, 0, 1, 0.001);
     lfoAmt = hslider("lfoAmt%i", 1, 0, 1, 0.001);
@@ -57,12 +57,13 @@ with {
     
     newFreq = ba.midikey2hz( ba.hz2midikey(slideFreq) + (freqEnv * fEnvAmt));
     fEnvAmt = hslider("fEnvAmt%i", 0, 0, 1, 0.001);
-    idx = hslider("idx%i", (i*2)+1, -48, 48, 0.001) : si.polySmooth(gate, 0.999, 10);
+    idx = hslider("idx%i", i, -48, 48, 0.001) : si.polySmooth(gate, 0.999, 10);
     amp = hslider("amp%i", 1/(i+1), 0, 1, 0.001) : si.polySmooth(gate, 0.999, 10);
     a = hslider("a%i", .001, 0.001, 12, 0.001);
     d = hslider("d%i", 0.01, 0.001, 12, 0.001);
     s = hslider("s%i", 0.9, 0.001, 1, 0.001);
     r = hslider("r%i", 0.01, 0.001, 12, 0.001);
+    del = hslider("del%i", i*10, 0, 1000, 0.1) * (ma.SR/1000);
     
     // if freq is above 19,000 output 0
     bLimit(fr,x) = fr < (x), fr : *;

@@ -27,7 +27,7 @@
 #X obj 739 128 inlet;
 #X obj 495 170 del 5;
 #X msg 433 244 \$1 5;
-#X obj 147 291 organ_12_2~;
+#X obj 147 291 organ_12_3~;
 #X connect 0 0 28 0;
 #X connect 1 0 28 0;
 #X connect 2 0 28 0;

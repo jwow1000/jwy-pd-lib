@@ -1,5 +1,5 @@
-declare filename "popFilterDrum.dsp";
-declare name "popFilterDrum";
+declare filename "popFilterDrum2.dsp";
+declare name "popFilterDrum2";
 import("stdfaust.lib");
 
 declare author "JeremyWY";
@@ -18,6 +18,7 @@ freqDec = hslider("freqDec", 0.01, 0.001, 1, 0.001);
 freqDepth = hslider("freqDepth", 30, -48, 48, 0.1);
 freqEnv(d) = en.adsre(freqAtt, freqDec, 0, freqDec, gate) * d;
 freqModder = ba.midikey2hz( ba.hz2midikey( freq ) + freqEnv(freqDepth));
+freqModClamped = min(max(freqModder, 25), 10000);
 
 ampEnv = en.adsre(att, dec, 0, dec, gate )
 with {
@@ -25,4 +26,4 @@ with {
     dec = hslider("dec", 0.1, 0.001, 6, 0.001);
 };
 
-process = (no.pink_noise * 0.5) * ampEnv : fi.resonbp(freqModder, q, gain);
+process = (no.noise * 0.3) * ampEnv : fi.resonbp(freqModClamped, q, gain) : fi.resonbp(freqModClamped, q, gain);
