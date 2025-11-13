@@ -1,7 +1,7 @@
-#N canvas 263 117 450 300 12;
+#N canvas 263 117 450 467 12;
 #X obj 132 20 inlet;
-#X obj 63 260 outlet;
-#X obj 63 229 list prepend;
+#X obj 61 350 outlet;
+#X obj 61 319 list prepend, f 18;
 #X obj 97 102 list split 1;
 #X obj 266 175 + 1;
 #X obj 209 173 i 1;
@@ -9,7 +9,7 @@
 #X obj 139 135 list store;
 #X obj 75 148 t b a b;
 #X obj 111 68 t a b;
-#X obj 64 198 list prepend \$1;
+#X obj 62 288 list prepend \$1;
 #X connect 0 0 9 0;
 #X connect 2 0 1 0;
 #X connect 3 0 8 0;
