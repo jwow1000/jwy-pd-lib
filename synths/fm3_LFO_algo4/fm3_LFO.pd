@@ -1,4 +1,4 @@
-#N canvas 42 55 1398 847 10;
+#N canvas 42 193 1398 847 10;
 #X obj 10 1110 inlet;
 #X obj 130 1110 r \$0-read;
 #X obj 130 1140 faust-control \$0;
