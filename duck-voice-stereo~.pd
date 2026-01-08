@@ -21,6 +21,7 @@
 #X text 410 36 *** 0ms latency but for 8ms on the attack you have 2 processes going.;
 #X obj 79 359 \$2 \$3, f 10;
 #X obj 190 359 \$2 \$3, f 14;
+#X obj 63 454 outlet;
 #X connect 0 0 1 0;
 #X connect 1 0 7 0;
 #X connect 1 1 2 0;
@@ -40,7 +41,8 @@
 #X connect 13 1 12 0;
 #X connect 14 0 20 2;
 #X connect 14 0 21 2;
-#X connect 20 0 9 0;
-#X connect 20 1 10 0;
-#X connect 21 0 9 0;
-#X connect 21 1 10 0;
+#X connect 20 0 22 0;
+#X connect 20 1 9 0;
+#X connect 20 2 10 0;
+#X connect 21 1 9 0;
+#X connect 21 2 10 0;

@@ -99,6 +99,7 @@
 #X connect 8 0 10 0;
 #X connect 9 0 11 0;
 #X connect 9 0 29 0;
+#X connect 9 0 30 0;
 #X connect 10 0 15 0;
 #X connect 13 0 0 0;
 #X connect 14 0 0 1;
