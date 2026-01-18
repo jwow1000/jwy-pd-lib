@@ -1,0 +1,4 @@
+#N canvas 761 328 450 244 12;
+#X obj 46 57 catch~ \$2-op\$3-to-op\$1;
+#X obj 46 110 outlet~;
+#X connect 0 0 1 0;

@@ -1,0 +1,11 @@
+#N canvas 718 286 450 300 12;
+#X obj 58 55 inlet~;
+#X text 147 37 multiple throws to a single catch;
+#X obj 123 88 r \$2-op\$3-to-op\$1;
+#X obj 58 154 *~;
+#X obj 123 112 lop~ 20;
+#X obj 58 201 throw~ \$2-op\$3-to-op\$1;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 1;
