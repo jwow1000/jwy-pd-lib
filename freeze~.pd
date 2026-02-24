@@ -1,7 +1,7 @@
 #N canvas 536 236 904 611 12;
 #X text 114 25 audio;
 #X text 552 15 arg 1 : time in ms;
-#N canvas 776 170 450 504 capture 1;
+#N canvas 776 170 450 504 capture 0;
 #X msg 122 140 stop;
 #X msg 106 319 stop;
 #X obj 40 360 outlet;
@@ -69,13 +69,15 @@
 #X obj 302 142 s \$0-freeze;
 #X obj 21 165 s \$0-noteVel;
 #X obj 37 70 route vel chunk stop speed adsr freeze;
+#X obj 37 94 clip 0 127;
 #X connect 0 0 7 0;
-#X connect 7 0 6 0;
+#X connect 7 0 8 0;
 #X connect 7 2 2 0;
 #X connect 7 3 3 0;
 #X connect 7 4 4 0;
 #X connect 7 5 5 0;
 #X connect 7 5 1 0;
+#X connect 8 0 6 0;
 #X restore 214 55 pd messages;
 #X obj 182 543 outlet~;
 #N canvas 0 30 489 534 play 0;

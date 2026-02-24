@@ -9,8 +9,8 @@
 #X text 159 421 generates 360 ticks per beat;
 #X obj 279 163 / 360;
 #X obj 62 431 outlet;
-#X obj 62 42 t a a;
-#X obj 115 86 sel 1;
+#X obj 62 92 t a a;
+#X obj 115 136 sel 1;
 #X obj 279 45 f \$1;
 #X text 419 63 Arg 1: default bpm;
 #X obj 62 292 i;
@@ -18,6 +18,7 @@
 #X obj 62 345 t a a;
 #X obj 62 321 expr if($f1 >= 360 \, 0 \, $f1);
 #X obj 392 276 outlet;
+#X obj 279 69 abs;
 #X connect 0 0 10 0;
 #X connect 2 0 12 0;
 #X connect 4 0 14 0;
@@ -29,9 +30,10 @@
 #X connect 10 0 4 0;
 #X connect 10 1 11 0;
 #X connect 11 0 12 0;
-#X connect 12 0 5 0;
+#X connect 12 0 19 0;
 #X connect 14 0 17 0;
 #X connect 15 0 14 1;
 #X connect 16 0 9 0;
 #X connect 16 1 15 0;
 #X connect 17 0 16 0;
+#X connect 19 0 5 0;
