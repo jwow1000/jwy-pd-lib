@@ -10,6 +10,7 @@
 #X obj 75 148 t b a b;
 #X obj 111 68 t a b;
 #X obj 62 288 list prepend \$1;
+#X text 203 25 list of numbers;
 #X connect 0 0 9 0;
 #X connect 2 0 1 0;
 #X connect 3 0 8 0;
