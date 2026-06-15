@@ -107,7 +107,7 @@
 #X obj 347 439 r \$0-phase;
 #X obj 322 496 wrap;
 #X obj 322 472 + \$2;
-#X obj 20 56 route free-start sync-start stop beat phase pause;
+#X obj 19 69 route free-start sync-start stop beat phase pause;
 #X obj 304 103 s \$0-pause;
 #X obj 423 300 i \$1;
 #X text 99 17 Arg2: phase;
