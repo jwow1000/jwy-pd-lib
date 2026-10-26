@@ -11,7 +11,7 @@
 #X obj 99 408 +~ 1;
 #X obj 99 464 *~ 0.7;
 #X obj 99 541 hip~ 4;
-#N canvas 237 267 450 300 fetch-size 1;
+#N canvas 237 267 450 300 fetch-size 0;
 #X text 189 27 get buffer size;
 #X obj 147 217 v \$0-size-samples;
 #X obj 147 89 change -1;
